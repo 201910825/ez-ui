@@ -1,34 +1,35 @@
 import React from "react";
+import { Btn } from "./Button";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Btn from "./Button";
 
 interface ScreenProps {
     src: string,
     alt: string,
     priority?: boolean,
     className?:string,
-    speed?: number
+    speed?: number,
+    width?: number,
+    height?: number,
+    isSpin?: boolean
 }
 
-const VirtualPhone = ({ src,alt,priority,speed }: ScreenProps) => {
+const VirtualPhone = ({ width, height, src, alt, priority, speed, isSpin = false }: ScreenProps) => {
   return (
-    <section className="grid place-content-center">
-      <FloatingPhone src={src} alt={alt} priority={priority} speed={speed}/>
-    </section>
+    <FloatingPhone width={width} height={height} src={src} alt={alt} priority={priority} speed={speed} isSpin={isSpin}/>
   );
 };
 
-const FloatingPhone = ({ src,alt,priority,speed }: ScreenProps) => {
+const FloatingPhone = ({ width, height, src, alt, priority, speed, isSpin }: ScreenProps) => {
     return (
     <div
     style={{
         transformStyle: "preserve-3d",
-        animation: `spin ${speed}s linear infinite`,
-        width: "200px",
-        height: "400px",
+        animation: isSpin ? `spin ${speed}s linear infinite` : 'none',
+        width: width+'px',
+        height: height +'px',
         position: "relative",
-        margin: "100px auto",
-        
+        transform: isSpin ? 'none' : 'rotateX(60deg) rotateY(0deg) rotateZ(25deg)',
       }}
       className="relative"
     >
@@ -63,7 +64,7 @@ const FloatingPhone = ({ src,alt,priority,speed }: ScreenProps) => {
       <div
         className="absolute inset-0 h-full w-[20px] bg-gradient-to-t from-gray-400 via-gray-200 to-gray-600"
         style={{
-          transform: "rotateY(-90deg) translateZ(-183px)",
+          transform: `rotateY(-90deg) translateZ(-${width-17}px)`,
         }}
       ></div>
 
@@ -80,7 +81,7 @@ const FloatingPhone = ({ src,alt,priority,speed }: ScreenProps) => {
       <div
         className="absolute inset-0 w-full h-[20px] bg-gradient-to-t from-gray-400 via-gray-200 to-gray-600"
         style={{
-          transform: "rotateX(-90deg) translateZ(385px) translateY(0px)",
+          transform: `rotateX(-90deg) translateZ(${height-15}px) translateY(0px)`,
 
           borderBottomLeftRadius: "24px",
           borderBottomRightRadius: "24px",
@@ -110,10 +111,14 @@ const HeaderBar = () => {
   );
 };
 
-const Screen = ({ src,alt,priority }: ScreenProps) => {
+const Screen = ({ src,alt,className }: ScreenProps) => {
   return (
     <div className="relative z-0 h-full w-full place-content-center overflow-hidden bg-white">
-      <Image src={src} alt={alt} priority={priority} fill/>
+      <Image
+      src={src}
+      alt={alt}
+      fill
+      className={cn('h-full w-full rounded-md object-cover',className)}/>
       <div className="absolute left-4 w-4/5 bottom-2 block md:hidden">
         <Btn />
       </div>

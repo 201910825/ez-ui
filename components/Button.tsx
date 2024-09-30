@@ -1,28 +1,43 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { cva, VariantProps } from "class-variance-authority";
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   className?: string;
   children?: React.ReactNode;
 }
 
-const Btn = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-
-      className,
-      children,
-      ...props
+const buttonVariants = cva(
+  "group relative z-100 rounded-[40px] flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap",
+  {
+    variants: {
+      size: {
+        default: "px-[15px] py-[10px]",
+        small: "px-2 py-1 text-sm",
+        medium: "px-4 py-2 text-base",
+        large: "px-6 py-3 text-lg",
+      },
+      variant: {
+        default: "",
+        primary: "bg-blue-500 text-white group-active:shadow-[inset_0_-10px_10px_blue] group-hover:shadow-[inset_0_-4px_10px_blue]",
+        secondary: "bg-gray-500 text-white group-active:shadow-[inset_0_-10px_10px_gray] group-hover:shadow-[inset_0_-4px_10px_#f82d2d3d]",
+        danger: "bg-red-500 text-white",
+      },
     },
-    ref,
-  ) => {
+    defaultVariants: {
+      size: "default",
+      variant: "default",
+    },
+  }
+);
+
+const Btn = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, children, size, variant, ...props }, ref) => {
     return (
       <button
-        className={cn(
-          "group relative z-0 rounded-[40px] flex px-[15px] py-[10px] cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap",
-          className
-        )}
+        className={cn(buttonVariants({ size, variant }), className)}
         ref={ref}
         {...props}
       >
@@ -32,17 +47,16 @@ const Btn = React.forwardRef<HTMLButtonElement, ButtonProps>(
             "insert-0 absolute h-full w-full",
             "rounded-[40px] px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#6f6e6e3e]",
             // on hover
-            "group-hover:shadow-[inset_0_-4px_10px_#6f6e6e3e]",
+            "group-hover:shadow-[inset_0_-4px_10px_#00000063]",
             // on click
-            "group-active:shadow-[inset_0_-10px_10px_#6f6e6e3e]"
+            "group-active:shadow-[inset_0_-10px_10px_#ffffff3b]"
           )}
         />
-        
       </button>
     );
-  },
+  }
 );
 
 Btn.displayName = "Btn";
 
-export default Btn;
+export { Btn , buttonVariants }

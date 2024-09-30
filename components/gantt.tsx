@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, createContext, useContext } from 'react';
 import { cn } from '@/lib/utils';
-import Btn from './Button';
+import { Btn } from './Button';
 
 interface Task {
   name: string;
@@ -65,7 +65,7 @@ const GanttChartProvider = ({ children, className, width = 1000, height = 800, t
 
   return (
     <GanttChartContext.Provider value={{ currentMonth, currentYear, handlePrevMonth, handleNextMonth, tasks, width, height, plannedColor, actualColor, margin }}>
-      <div className={cn(`overflow-y-scroll items-center flex w-[${width}px] flex flex-col h-[${height}px] p-5`, className)}>
+      <div className={cn(` items-center flex w-[${width}px] flex flex-col h-[${height}px] p-5`, className)}>
         {children}
       </div>
     </GanttChartContext.Provider>
@@ -138,38 +138,43 @@ const GanttChartBody = () => {
 
         {/* 마지막 날짜 추가 */}
         <div className="absolute border-l border-gray-300 h-[90%]" style={{ left: xScale(maxDate), top: 0, bottom: 0 }}>
-          <div className="absolute bottom-[-40px] text-xs text-center w-full">
+          <div className="absolute bottom-[-30px] text-xs text-center w-full">
             {`${maxDate.getMonth() + 1}/${maxDate.getDate()}`}
           </div>
         </div>
 
         {/* Y Axis */}
         {tasks.map((task, index) => (
-          <div key={index} className="absolute" style={{ top: yScale(index), left: 0, right: 0, height: 50 }}>
-            <div className="absolute text-start text-xs" style={{ width: margin.left - 10 }}>
+          <div key={index} className={`absolute`} style={{ top: yScale(index), left: 0, right: 0, height: 50 }}>
+            <div className={`absolute text-start text-xs w-[${margin.left-10}px]`}>
               {task.name}
             </div>
             {/* Planned Task */}
-            <div
-              className="absolute"
+            <div className={`w-full absolute h-full overflow-hidden`} style={{ left:margin.left-10}}>
+              <div
+              className={`absolute`}
               style={{
-                left: xScale(task.plannedStart),
+                left: xScale(task.plannedStart) - margin.left + 10,
                 width: xScale(task.plannedEnd) - xScale(task.plannedStart),
                 height: 20,
                 backgroundColor: plannedColor,
+                zIndex: 5,
               }}
             />
             {/* Actual Task */}
             <div
               className="absolute"
               style={{
-                left: xScale(task.actualStart),
+                left: xScale(task.actualStart)- margin.left + 10,
                 top: 25,
                 width: xScale(task.actualEnd) - xScale(task.actualStart),
                 height: 20,
                 backgroundColor: actualColor,
+                zIndex: 5,
               }}
             />
+            </div>
+            
           </div>
         ))}
       </div>

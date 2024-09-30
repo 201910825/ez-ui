@@ -2,7 +2,7 @@
 
 import React, { ReactNode, createContext, useContext } from 'react';
 import { cn } from '@/lib/utils';
-import Btn from './Button';
+import { Btn } from './Button';
 
 interface AlertModalProps {
     children?: ReactNode;
@@ -33,7 +33,7 @@ const AlertModal = ({ children, isOpen, onClose }: AlertModalProps) => {
     return isOpen ? (
       <AlertModalContext.Provider value={{ isOpen, onOpen: () => {}, onClose }}>
         <div className="fixed inset-0 bg-black/80 bg-opacity-50 flex justify-center items-center z-[100]" onClick={onClose}>
-          <div className={`${isLightMode ? 'bg-[white]' : 'bg-[black]'} p-6 rounded-md shadow-lg w-full sm:w-1/3`} onClick={(e) => e.stopPropagation()}>
+          <div className={`${isLightMode ? 'bg-[white]' : 'bg-[black]'} border border-[#6f6e6e3e] p-6 rounded-md shadow-lg w-full sm:w-1/3`} onClick={(e) => e.stopPropagation()}>
             {children}
           </div>
         </div>

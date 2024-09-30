@@ -1,4 +1,6 @@
-export { default as Button } from '../components/Button';
+export { ThemeProvider } from '../components/theme-provider';
+
+export { Btn, buttonVariants } from '../components/Button';
 export { 
     Modal, 
     ModalTrigger, 
@@ -18,3 +20,8 @@ export { ConfirmProvider, useConfirm } from '../components/Confirm';
 export { default as VirtualPhone } from '../components/VirtualPhone';
 
 export { GanttChartHeader, GanttChartBody ,GanttChartFooter , GanttChartProvider } from '../components/gantt';
+
+export { default as Avatar } from '../components/Avatar';
+
+export { default as ScrollArea } from '../components/ScrollArea'
+

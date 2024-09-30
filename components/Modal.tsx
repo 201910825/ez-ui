@@ -2,38 +2,28 @@
 
 import React, { useState, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
-import Btn from './Button';
+import { Btn } from './Button';
 
 interface ModalProps {
   children?: ReactNode;
   className?: string;
 }
 
-interface ModalTriggerProps {
-  children?: ReactNode;
-  className?: string;
+interface ModalTriggerProps extends ModalProps {
   onClick?: () => void;
 }
 
-interface ModalContentProps {
-  children?: ReactNode;
-  className?: string;
+interface ModalContentProps extends ModalProps {
   onClose?: () => void;
 }
 
-interface ModalHeaderProps {
-  children?: ReactNode;
-  className?: string;
+interface ModalHeaderProps extends ModalProps {
 }
 
-interface ModalFooterProps {
-  children?: ReactNode;
-  className?: string;
+interface ModalFooterProps extends ModalProps {
 }
 
-interface ModalButtonProps {
-  children?: ReactNode;
-  className?: string;
+interface ModalButtonProps extends ModalProps {
   onClick?: () => void;
 }
 
@@ -69,12 +59,20 @@ const Modal = ({ children }: ModalProps) => {
     );
 };
   
-  const ModalContent = ({ children, className }: ModalContentProps) => {
+const ModalContent = ({ children, className }: ModalContentProps) => {
     const isLightMode = typeof window !== 'undefined' && document.documentElement.classList.contains('light');
     const { isOpen, onClose: contextOnClose } = React.useContext(ModalContext);
+  
     return isOpen ? (
-      <div className={cn("fixed inset-0 bg-black/80 bg-opacity-50 flex justify-center items-center z-[100]",className)} onClick={contextOnClose}>
-        <div className={cn(`${isLightMode ? 'bg-[white]' : 'bg-[black]'} p-6 rounded-md shadow-lg w-full sm:w-1/3`,className)} onClick={(e) => e.stopPropagation()}>
+      <div className={cn("fixed inset-0 bg-black/80 bg-opacity-50 flex justify-center items-center z-[100]")} onClick={contextOnClose}>
+        <div
+        className={cn(
+          "p-6 rounded-md shadow-lg w-full sm:w-1/3 border border-[#6f6e6e3e]",
+          isLightMode ? 'bg-[white]' : 'bg-[black]',
+          className
+        )}
+        onClick={(e) => e.stopPropagation()}
+      >
           {children}
         </div>
       </div>
