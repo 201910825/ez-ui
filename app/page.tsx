@@ -29,11 +29,12 @@ const tasks = [
   ];
 
 const HomeContent = () => {
-  const { confirm } = useConfirm();
+  const { confirm,alert } = useConfirm();
   const handleDelete = async () => {
     console.log('clicked');
     const result = await confirm('Are you sure you want to delete this item?');
     if (result) {
+      alert('awefawef')
       console.log("Confirmed");
     } else {
       console.log("Cancelled");
@@ -74,7 +75,7 @@ const HomeContent = () => {
 
 export default function Home() {
   return (
-    <ConfirmProvider >
+    <ConfirmProvider alertTitle='뭐시깽이' >
       <NavBar 
         items={navItems} 
         logo={<Image src="" alt="Logo" width={40} height={40} />}
