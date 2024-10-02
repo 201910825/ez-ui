@@ -20,7 +20,9 @@ export default {
     },
   ],
   plugins: [
-    typescript(),
+    typescript({
+      useTsconfigDeclarationDir: true, // tsconfig의 declarationDir 사용
+    }),
     babel({
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       babelHelpers: 'bundled',

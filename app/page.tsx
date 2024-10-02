@@ -1,19 +1,20 @@
 'use client'
 import React from 'react';
-import { Btn } from "@/components/Button";
-import ToggleDark from '@/components/Darkmode';
-import Alert from '@/components/Alert';
-import VirtualPhone from '@/components/VirtualPhone';
-import Avatar from '@/components/Avatar';
-import Form from '@/components/Form';
-import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalFooter, ModalCancel, ModalAction } from '@/components/Modal';
-import { ConfirmProvider, useConfirm } from '@/components/Confirm';
-import { GanttChartHeader, GanttChartBody ,GanttChartFooter , GanttChartProvider, NextBtn, PrevBtn } from '@/components/gantt';
-import NavBar from '@/components/NavBar';
+import { Btn } from "../components/Button";
+import ToggleDark from '../components/Darkmode';
+import Alert from '../components/Alert';
+import VirtualPhone from '../components/VirtualPhone';
+import Avatar from '../components/Avatar';
+import Form from '../components/Form';
+import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalFooter, ModalCancel, ModalAction } from '../components/Modal';
+import { ConfirmProvider, useConfirm } from '../components/Confirm';
+import { GanttChartHeader, GanttChartBody ,GanttChartFooter , GanttChartProvider, NextBtn, PrevBtn } from '../components/gantt';
+import NavBar from '../components/NavBar';
 import Image from 'next/image';
-import { LinkContent } from '@/components/LinkItem';
+import  LinkContent  from '../components/LinkItem';
 import { PanelsTopLeft } from 'lucide-react';
-import ScrollArea from '@/components/ScrollArea';
+import ScrollArea from '../components/ScrollArea';
+import  Calendar  from '../components/Calendar';
 
 const tasks = [
   { name: 'Task 1', plannedStart: new Date('2023-10-01'), plannedEnd: new Date('2023-10-05'), actualStart: new Date('2023-10-02'), actualEnd: new Date('2023-10-06') },
@@ -73,7 +74,7 @@ const HomeContent = () => {
 
 export default function Home() {
   return (
-    <ConfirmProvider>
+    <ConfirmProvider >
       <NavBar 
         items={navItems} 
         logo={<Image src="" alt="Logo" width={40} height={40} />}
@@ -112,8 +113,8 @@ export default function Home() {
       
       {/* 페이지의 나머지 내용 */}
     </div>
-      <LinkContent Icon={PanelsTopLeft} to='/'>
-        <p>컨텐츠 경로</p>
+      <LinkContent Icon={PanelsTopLeft} to='/infinitytest'>
+        <p>무한 스크롤</p>
       </LinkContent>
       <ScrollArea className="h-[250px] w-[300px]" showScrollbar = {true} barColor='blue'>
         <LinkContent className='w-full' Icon={PanelsTopLeft} to='/'>
@@ -144,7 +145,7 @@ export default function Home() {
           <p>컨텐츠 경로</p>
         </LinkContent>
         
-    </ScrollArea>
+    </ScrollArea><Calendar/>
     </ConfirmProvider>
   );
 }

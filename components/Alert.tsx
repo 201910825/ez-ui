@@ -52,7 +52,7 @@ const AlertContent = ({ title, content, onClose, submit='알겠습니다',trigge
                 {content}
             </div>
             <div className='flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2'>
-              <Btn onClick={onClose} className="text-xl font-bold">{submit}</Btn>
+              <Btn onClick={onClose} className="dark:bg-white dark:text-black bg-white text-black  text-xl font-bold">{submit}</Btn>
             </div>
         </div>
     );

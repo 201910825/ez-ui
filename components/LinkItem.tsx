@@ -40,4 +40,4 @@ const LinkContent = React.forwardRef<HTMLDivElement, LinkContent>(
 LinkContent.displayName = 'LinkContent';
 
 
-export { LinkContent }
+export default LinkContent

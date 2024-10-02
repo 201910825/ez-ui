@@ -9,7 +9,7 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',  // src 디렉토리의 components
     './src/app/**/*.{js,ts,jsx,tsx}',  // src 디렉토리의 app
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     extend: {},
   },

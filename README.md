@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# @easymean/ez-ui
 
-## Getting Started
+<div align="center">
+    아직 만드는중입니다
+    
+![ez-ui Logo](https://via.placeholder.com/150?text=ez-ui)
 
-First, run the development server:
+[![npm version](https://img.shields.io/npm/v/@easymean/ez-ui.svg?style=flat-square)](https://www.npmjs.com/package/@easymean/ez-ui)
+[![npm downloads](https://img.shields.io/npm/dm/@easymean/ez-ui.svg?style=flat-square)](https://www.npmjs.com/package/@easymean/ez-ui)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/@easymean/ez-ui?style=flat-square)](https://bundlephobia.com/result?p=@easymean/ez-ui)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+made components and hooks only Next.js with tailwind-css(In-Progress)
+개인적으로 쓰려고 만든 UI 라이브러리 
+제작중에 있습니다. 추가적으로 필요한 hook이나 component 요구받습니다.
+elwlals@gmail.com으로 부탁드려요
+</div>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 설치
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+npm, yarn, 또는 pnpm을 사용하여 @easymean/ez-ui를 설치할 수 있습니다:
 
-## Learn More
+> ```bash
+> # npm
+> npm install @easymean/ez-ui
+> 
+> # yarn
+> yarn add @easymean/ez-ui
+> 
+> # pnpm
+> pnpm add @easymean/ez-ui
+> ```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 소개
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+@easymean/ez-ui는 next.js에서 사용될 쓰기 용이한 ui와 hooks를 사용할 수 있습니다.
 
-## Deploy on Vercel
+## 특징
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 🚀 빠르고 가벼운 컴포넌트
+- 🎨 쉽게 커스터마이징 가능한 스타일
+- 🌙 다크 모드 지원
+- 🔧 TypeScript 지원
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## easy-ui
+
+- infinity scroll hook
+- private alert, confirm
+- gantt chart
+
+## 설치
+
+npm, yarn, 또는 pnpm을 사용하여 @easymean/ez-ui를 설치할 수 있습니다:
+
+> ```bash
+> # npm
+> npm install @easymean/ez-ui
+> 
+> # yarn
+> yarn add @easymean/ez-ui
+> 
+> # pnpm
+> pnpm add @easymean/ez-ui
+> ```

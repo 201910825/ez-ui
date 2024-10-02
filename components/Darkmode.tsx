@@ -5,8 +5,8 @@ import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Btn } from "./Button"
 
-export default function ToggleDark () {
-  const { theme, setTheme } = useTheme()
+export default function ToggleDark() {
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -14,17 +14,17 @@ export default function ToggleDark () {
   }, [])
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
+    setTheme(resolvedTheme === "dark" ? "light" : "dark")
   }
 
   if (!mounted) return null
 
   return (
     <Btn onClick={toggleTheme}>
-      {theme === "dark" ? (
-        <Sun/>
+      {resolvedTheme === "dark" ? (
+        <Sun />
       ) : (
-        <Moon/>
+        <Moon />
       )}
     </Btn>
   )
