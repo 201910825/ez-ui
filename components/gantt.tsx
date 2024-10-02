@@ -205,3 +205,4 @@ const GanttChartFooter = ({ children }:GanttChartProps) => {
 };
 
 export { GanttChartHeader, GanttChartBody, GanttChartFooter, GanttChartProvider, PrevBtn, NextBtn };
+export type { Task, GanttChartProps, ButtonProps };

@@ -4,7 +4,10 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
-    "noEmit": true,
+    "noEmit": false,
+    "declaration": true, // 타입 정의 파일 생성
+    "declarationDir": "./dist/types", // 타입 정의 파일 출력 디렉토리
+    "emitDeclarationOnly": true, // 타입 정의 파일만 생성
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -21,6 +24,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "components/**/*.ts", "components/**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
 }

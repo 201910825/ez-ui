@@ -41,7 +41,6 @@ const FormContent = ({ title, content, onClose, submit='Submit',trigger, classNa
     const [inputValue, setInputValue] = useState('');
 
     const handleSubmit = () => {
-        console.log('Form submitted with:', inputValue);
         onClose();
     };
 
