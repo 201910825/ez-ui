@@ -5,12 +5,12 @@ import Link from "next/link"
 import { usePathname } from "next/navigation";
 
 
-interface LinkProps {
+export interface LinkProps {
   to ?: string,
   className ?: string ,
   children ?: React.ReactNode,
 }
-interface LinkContent extends LinkProps, React.HTMLAttributes<HTMLDivElement> {
+export interface LinkContentProps extends LinkProps, React.HTMLAttributes<HTMLDivElement> {
   width?: number,
   height?: number,
   Icon?: any,
@@ -18,7 +18,7 @@ interface LinkContent extends LinkProps, React.HTMLAttributes<HTMLDivElement> {
   locatedStyle?: string,
 }
 
-const LinkContent = React.forwardRef<HTMLDivElement, LinkContent>(
+const LinkContent = React.forwardRef<HTMLDivElement, LinkContentProps>(
   ({ to, Icon, width=16, height=16, text, locatedStyle = 'font-bold underline', className, children, ...props }, ref) => {
     const path = usePathname();
     return (

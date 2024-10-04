@@ -4,26 +4,26 @@ import React, { useState, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 import { Btn } from './Button';
 
-interface ModalProps {
+export interface ModalProps {
   children?: ReactNode;
   className?: string;
 }
 
-interface ModalTriggerProps extends ModalProps {
+export interface ModalTriggerProps extends ModalProps {
   onClick?: () => void;
 }
 
-interface ModalContentProps extends ModalProps {
+export interface ModalContentProps extends ModalProps {
   onClose?: () => void;
 }
 
-interface ModalHeaderProps extends ModalProps {
+export interface ModalHeaderProps extends ModalProps {
 }
 
-interface ModalFooterProps extends ModalProps {
+export interface ModalFooterProps extends ModalProps {
 }
 
-interface ModalButtonProps extends ModalProps {
+export interface ModalButtonProps extends ModalProps {
   onClick?: () => void;
 }
 

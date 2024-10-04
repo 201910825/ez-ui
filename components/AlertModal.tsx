@@ -4,24 +4,24 @@ import React, { ReactNode, createContext, useContext } from 'react';
 import { cn } from '@/lib/utils';
 import { Btn } from './Button';
 
-interface AlertModalProps {
+export interface AlertModalProps {
     children?: ReactNode;
     className?: string;
     isOpen?: boolean;
     onClose?: () => void;
   }
 
-interface AlertModalHeaderProps {
+export interface AlertModalHeaderProps {
   children?: ReactNode;
   className?: string;
 }
 
-interface AlertModalFooterProps {
+export interface AlertModalFooterProps {
   children?: ReactNode;
   className?: string;
 }
 
-interface AlertModalButtonProps {
+export interface AlertModalButtonProps {
   children?: ReactNode;
   className?: string;
   onClick?: () => void;
