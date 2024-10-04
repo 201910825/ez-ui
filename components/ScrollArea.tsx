@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import React, { useRef, useEffect, useState } from 'react';
 
-interface ScrollAreaProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ScrollAreaProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: React.ReactNode;
   showScrollbar?: boolean; 

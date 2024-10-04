@@ -10,7 +10,7 @@ interface ConfirmContextProps {
 
 const ConfirmContext = createContext<ConfirmContextProps | undefined>(undefined);
 
-interface ConfirmProviderProps {
+export interface ConfirmProviderProps {
   children: ReactNode;
   alertClassName?: string;
   alertHeaderClassName?: string;

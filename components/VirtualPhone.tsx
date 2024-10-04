@@ -3,7 +3,7 @@ import { Btn } from "./Button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-interface ScreenProps {
+export interface ScreenProps {
     src: string,
     alt: string,
     priority?: boolean,

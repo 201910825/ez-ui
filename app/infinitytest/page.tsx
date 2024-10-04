@@ -1,34 +1,44 @@
 'use client'
 import useInfiniteScroll from '../../components/infinityScroll';
-import React, { useState } from 'react';
+import React from 'react';
+// Mock fetch function
+const data = async (page) => {
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return await response.json();
+    
+  } catch (error) {
+    console.error('Failed to fetch items:', error);
+  }
+};
 
 const InfinityScrollComponent = () => {
-  const [items, setItems] = useState<number[]>([]);
-  const [hasMore, setHasMore] = useState(true);
-
-  const fetchMoreData = () => {
-    if (items.length >= 100) {
-      setHasMore(false);
-      return;
-    }
-    setTimeout(() => {
-      setItems((prev) => [...prev, ...Array.from({ length: 20 }, (_, i) => prev.length + i)]);
-    }, 1500);
-  };
-
-  const lastElementRef = useInfiniteScroll({
-    callback: fetchMoreData,
-    hasMore,
+  const { lastElementRef, items, isLoading } = useInfiniteScroll({
+    fetchItems: async (page) => {
+      const result = await data(page); 
+      console.log(result)
+      return {
+        results: result,
+        total_pages: 10
+      };
+    },
+    initialPage: 1,
+    cache: false
   });
 
   return (
     <div>
-      {items.map((item, index) => (
-        <div key={index} style={{ height: '100px', border: '1px solid black' }}>
-          Item {item}
+      {items && items.map((item) => ( // Ensure items is an array
+        <div style={{ height: '50px', border: '1px solid black' }}>
+          <p>Name: {item.title}</p> {/* Assuming the API returns a title */}
+          <p>ID: {item.id}</p>
         </div>
       ))}
-      <div ref={lastElementRef} style={{ height: '20px' }} />
+      <div ref={lastElementRef} style={{ height: '10px' }} />
+      {isLoading && <p>Loading more...</p>}
     </div>
   );
 };

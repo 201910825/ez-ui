@@ -2,7 +2,6 @@
 import React from 'react';
 import { Btn } from "../components/Button";
 import ToggleDark from '../components/Darkmode';
-import Alert from '../components/Alert';
 import VirtualPhone from '../components/VirtualPhone';
 import Avatar from '../components/Avatar';
 import Form from '../components/Form';
@@ -45,7 +44,6 @@ const HomeContent = () => {
     <div className="">
       <ToggleDark />
       <Btn  className=''>click</Btn>
-      <Alert title='' content='content'></Alert>
       <div className='w-1/2 flex justify-center'>
         <VirtualPhone width={200} height={700} src='https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80' alt='awef' speed={7} isSpin = {false}/>
         모바일
