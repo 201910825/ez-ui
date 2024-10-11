@@ -15,16 +15,11 @@ import { PanelsTopLeft } from 'lucide-react';
 import ScrollArea from '../components/ScrollArea';
 import  Calendar  from '../components/Calendar';
 
+
 const tasks = [
   { name: 'Task 1', plannedStart: new Date('2023-10-01'), plannedEnd: new Date('2023-10-05'), actualStart: new Date('2023-10-02'), actualEnd: new Date('2023-10-06') },
   { name: 'Task 2', plannedStart: new Date('2023-10-03'), plannedEnd: new Date('2023-10-08'), actualStart: new Date('2023-10-04'), actualEnd: new Date('2023-10-09') },
   { name: 'Task 3', plannedStart: new Date('2023-11-07'), plannedEnd: new Date('2024-11-10'), actualStart: new Date('2023-10-08'), actualEnd: new Date('2023-10-24') },
-  ];
-  const navItems = [
-    { label: '홈', href: '/' },
-    { label: '소개', href: '/about' },
-    { label: '서비스', href: '/services' },
-    { label: '연락처', href: '/contact' },
   ];
 
 const HomeContent = () => {
@@ -74,11 +69,7 @@ const HomeContent = () => {
 export default function Home() {
   return (
     <ConfirmProvider alertTitle='뭐시깽이' >
-      <NavBar 
-        items={navItems} 
-        logo={<Image src="" alt="Logo" width={40} height={40} />}
-        className="bg-gray-100"
-      />
+
       <HomeContent />
       <div>
       <h1>Gantt Chart</h1>
@@ -115,36 +106,9 @@ export default function Home() {
       <LinkContent Icon={PanelsTopLeft} to='/infinitytest'>
         <p>무한 스크롤</p>
       </LinkContent>
-      <ScrollArea className="h-[250px] w-[300px]" showScrollbar = {true} barColor='blue'>
-        <LinkContent className='w-full' Icon={PanelsTopLeft} to='/'>
-          <p>컨텐츠 경로</p>
-        </LinkContent>
-        <LinkContent Icon={PanelsTopLeft} to='/'>
-          <p>컨텐츠 경로</p>
-        </LinkContent>
-        <LinkContent Icon={PanelsTopLeft} to='/'>
-          <p>컨텐츠 경로</p>
-        </LinkContent>
-        <LinkContent Icon={PanelsTopLeft} to='/'>
-          <p>컨텐츠 경로</p>
-        </LinkContent>
-        <LinkContent Icon={PanelsTopLeft} to='/'>
-          <p>컨텐츠 경로</p>
-        </LinkContent>
-        <LinkContent Icon={PanelsTopLeft} to='/'>
-          <p>컨텐츠 경로</p>
-        </LinkContent>
-        <LinkContent Icon={PanelsTopLeft} to='/'>
-          <p>컨텐츠 경로</p>
-        </LinkContent>
-        <LinkContent Icon={PanelsTopLeft} to='/'>
-          <p>컨텐츠 경로</p>
-        </LinkContent>
-        <LinkContent Icon={PanelsTopLeft} to='/'>
-          <p>컨텐츠 경로</p>
-        </LinkContent>
+      
         
-    </ScrollArea><Calendar/>
+    <Calendar showOutsideDays={false}/>
     </ConfirmProvider>
   );
 }

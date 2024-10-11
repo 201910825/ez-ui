@@ -25,6 +25,7 @@ const LinkContent = React.forwardRef<HTMLDivElement, LinkContentProps>(
     <Link href={to}>
       <div
         ref={ref}
+        style={to !== path ? { color: 'hsl(240, 5%, 64.9%)' } : {}}
         className={cn(`px-4 py-2 inline-flex items-center justify-start space-x-3 pl-[8px] ${to === path ? locatedStyle : ''}`, className)}
         {...props}
       >

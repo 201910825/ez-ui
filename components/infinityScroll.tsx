@@ -17,12 +17,12 @@ const useInfiniteScroll = ({
   root = null,
   rootMargin = '0px',
   initialPage = 0,
-  cache = false, // 기본값은 false로 설정
+  cache = false,
 }: UseInfiniteScrollProps) => {
   const observer = useRef<IntersectionObserver | null>(null);
   const lastElementRef = useRef<HTMLDivElement | null>(null);
   const [items, setItems] = useState<any[]>(() => {
-    if (cache) {
+    if (cache && typeof window !== 'undefined') {
       const savedItems = localStorage.getItem('infiniteScrollItems');
       return savedItems ? JSON.parse(savedItems) : [];
     }
@@ -38,15 +38,14 @@ const useInfiniteScroll = ({
   const [hasMore, setHasMore] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
-
+  const [error, setError] = useState(false); // New state to track errors
   const cacheRef = useRef<{ [key: number]: any[] }>({});
 
   const loadMoreItems = useCallback(async () => {
-    if (isLoading || !hasMore) return;
-
+    if (isLoading || !hasMore || error) return; 
     setIsLoading(true);
     try {
-      if (cacheRef.current[page]) {
+      if (cacheRef.current[page] && cacheRef.current[page] !== undefined ) {
         setItems((prev) => [...prev, ...cacheRef.current[page]]);
         setPage((prevPage) => prevPage + 1);
         setIsLoading(false);
@@ -54,28 +53,35 @@ const useInfiniteScroll = ({
       }
 
       const newResponse = await fetchItems(page);
-      setItems((prev) => [...prev, ...newResponse.results]);
-      setPage((prevPage) => prevPage + 1);
-      setTotalPages(newResponse.total_pages);
+      if (newResponse.results.length!==0)
+      {
+        setItems((prev) => [...prev, ...newResponse.results]);
+        setPage((prevPage) => prevPage + 1);
+        setTotalPages(newResponse.total_pages);
+        cacheRef.current[page] = newResponse.results;
+      }
+      else throw error
 
-      cacheRef.current[page] = newResponse.results;
-
-      if (page + 1 >= newResponse.total_pages) {
+      if (page + 1 > newResponse.total_pages) {
         setHasMore(false);
       }
+    } catch (error) {
+      setError(true); // Set error state to true
+      setHasMore(false); // Stop further attempts
+      return error
     } finally {
       setIsLoading(false);
     }
-  }, [page, hasMore, isLoading, fetchItems]);
+  }, [page, hasMore, isLoading, fetchItems, error]);
 
   const handleObserver = useCallback(
     (entries: IntersectionObserverEntry[]) => {
       const target = entries[0];
-      if (target.isIntersecting && hasMore && !isLoading) {
+      if (target.isIntersecting && hasMore && !isLoading && !error) { // Add error check
         loadMoreItems();
       }
     },
-    [hasMore, isLoading, loadMoreItems]
+    [hasMore, isLoading, loadMoreItems, error] // Add error to dependencies
   );
 
   useEffect(() => {
@@ -101,7 +107,7 @@ const useInfiniteScroll = ({
     }
   }, [items, page, cache]);
 
-  return { lastElementRef, items, isLoading };
+  return { lastElementRef, items, isLoading, error };
 };
 
 export default useInfiniteScroll;
