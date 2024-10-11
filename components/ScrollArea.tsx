@@ -1,3 +1,4 @@
+'use client'
 import { cn } from '@/lib/utils';
 import React, { useRef, useEffect, useState } from 'react';
 
@@ -82,7 +83,7 @@ const ScrollArea = ({ className, children,barColor = 'blue', showScrollbar = tru
     <div className={cn(`border border-[#] relative overflow-hidden`,className)} {...props} style={{ '--bar-color': barColor } as React.CSSProperties}>
       <div
         ref={contentRef}
-        className="p-4 h-full w-full overflow-auto scrollbar-hide"
+        className="p-4 h-full w-48 flex flex-col overflow-scroll scrollbar-hide"
         onScroll={handleScroll}
       >
         {children}

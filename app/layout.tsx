@@ -3,7 +3,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from '../components/theme-provider';
 import { ConfirmProvider } from '../components/Confirm';
+import SideBar from '@/components/Sidebar';
+import NavBar from '@/components/NavBar';
+import LinkContent from '@/components/LinkItem';
 
+
+const navItems = [
+  { label: '홈', href: '/' },
+  { label: '소개', href: '/about' },
+  { label: '서비스', href: '/services' },
+  { label: '연락처', href: '/contact' },
+];
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +30,50 @@ export default function RootLayout({ children }: Readonly<{children: React.React
             disableTransitionOnChange
           >
             <ConfirmProvider>
-            {children}
+            <NavBar 
+              items={navItems} 
+              logo = {<h2>ez-ui</h2>}
+              className=""
+            />
+            <div className='w-full flex justify-center'>
+              <div className='container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10'>
+
+              <SideBar title='ez-ui'>
+                <h1 className='ml-3 px-2 font-extrabold text-[24px]'>hooks</h1>
+                <LinkContent to='/docs/infinitytest'>
+                  <p>Infinity Scroll</p>
+                </LinkContent>
+                <LinkContent to='/docs/confirm'>
+                  <p>Confirm</p>
+                </LinkContent>
+                <LinkContent to='/'>
+                  <p>컨텐츠 경로</p>
+                </LinkContent>
+                <LinkContent  to='/'>
+                  <p>컨텐츠 경로</p>
+                </LinkContent>
+                <LinkContent  to='/'>
+                  <p>컨텐츠 경로</p>
+                </LinkContent>
+                <LinkContent to='/'>
+                  <p>컨텐츠 경로</p>
+                </LinkContent>
+                <LinkContent to='/'>
+                  <p>컨텐츠 경로</p>
+                </LinkContent>
+                <LinkContent to='/'>
+                  <p>컨텐츠 경로</p>
+                </LinkContent>
+                <LinkContent to='/'>
+                  <p>컨텐츠 경로</p>
+                </LinkContent>
+              </SideBar>
+              <div className='relative '>
+                {children}
+              </div>
+            </div>  
+            </div>
+            
             </ConfirmProvider>
           </ThemeProvider>
       </body>

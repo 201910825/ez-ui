@@ -1,6 +1,6 @@
 'use client'
-import useInfiniteScroll from '../../components/infinityScroll';
 import React from 'react';
+import { useInfiniteScroll } from '../../../src';
 // Mock fetch function
 const data = async (page) => {
   try {
@@ -12,14 +12,13 @@ const data = async (page) => {
     
   } catch (error) {
     console.error('Failed to fetch items:', error);
+    return []
   }
 };
-
 const InfinityScrollComponent = () => {
-  const { lastElementRef, items, isLoading } = useInfiniteScroll({
+  const { lastElementRef, items, isLoading, error } = useInfiniteScroll({
     fetchItems: async (page) => {
       const result = await data(page); 
-      console.log(result)
       return {
         results: result,
         total_pages: 10
@@ -28,17 +27,17 @@ const InfinityScrollComponent = () => {
     initialPage: 1,
     cache: false
   });
-
   return (
-    <div>
-      {items && items.map((item) => ( // Ensure items is an array
-        <div style={{ height: '50px', border: '1px solid black' }}>
+    <div >
+      {items && items.map((item, index) => ( // Ensure items is an array
+        <div key={item.id} style={{width : '100%',  height: '50px', border: '1px solid black' }}>
           <p>Name: {item.title}</p> {/* Assuming the API returns a title */}
           <p>ID: {item.id}</p>
         </div>
       ))}
       <div ref={lastElementRef} style={{ height: '10px' }} />
       {isLoading && <p>Loading more...</p>}
+      {error && <p>error fetching</p>}
     </div>
   );
 };

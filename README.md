@@ -2,7 +2,7 @@
 
 <div align="center">
     아직 만드는중입니다
-    
+
 ![ez-ui Logo](https://via.placeholder.com/150?text=ez-ui)
 
 [![npm version](https://img.shields.io/npm/v/@easymean/ez-ui.svg?style=flat-square)](https://www.npmjs.com/package/@easymean/ez-ui)
@@ -42,12 +42,15 @@ npm, yarn, 또는 pnpm을 사용하여 @easymean/ez-ui를 설치할 수 있습�
 - 🎨 쉽게 커스터마이징 가능한 스타일
 - 🌙 다크 모드 지원
 - 🔧 TypeScript 지원
+- 🔧 간편한 무한스크롤링 기능
+
 
 ## easy-ui
 
-- infinity scroll hook
+- easy infinity scroll hook
 - private alert, confirm
 - gantt chart
+- 커스텀 link 컴포넌트
 
 ## 설치
 

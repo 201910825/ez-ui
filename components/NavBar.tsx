@@ -2,21 +2,21 @@ import React from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
-interface NavItem {
+export interface NavItem {
   label: string
   href: string
 }
 
-interface NavBarProps {
+export interface NavBarProps {
   items: NavItem[]
   logo?: React.ReactNode
   className?: string
 }
 
-const NavBar: React.FC<NavBarProps> = ({ items, logo, className }) => {
+const NavBar = ({ items, logo, className }:NavBarProps) => {
   return (
     <nav className={cn(
-      "flex justify-between z-[100] items-center px-4 py-3 bg-white shadow-sm sticky top-0",
+      "flex justify-between z-[100] items-center px-4 py-3 shadow-sm sticky top-0",
       className
     )}>
       {logo && <div className="flex-shrink-0">{logo}</div>}

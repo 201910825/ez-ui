@@ -12,20 +12,20 @@ export type {
   ModalButtonProps
 } from '../components/Modal';
 export { 
-    Modal, 
-    ModalTrigger, 
-    ModalContent, 
-    ModalHeader, 
-    ModalFooter, 
-    ModalCancel, 
-    ModalAction 
-  } from '../components/Modal';
+  Modal, 
+  ModalTrigger, 
+  ModalContent, 
+  ModalHeader, 
+  ModalFooter, 
+  ModalCancel, 
+  ModalAction 
+} from '../components/Modal';
 
 export type { 
-    AlertModalProps, 
-    AlertModalHeaderProps, 
-    AlertModalFooterProps, 
-    AlertModalButtonProps
+  AlertModalProps, 
+  AlertModalHeaderProps, 
+  AlertModalFooterProps, 
+  AlertModalButtonProps
 } from '../components/AlertModal';
 export {
   AlertModal,
@@ -60,3 +60,6 @@ export { default as LinkContent } from '../components/LinkItem'
 
 export type { UseInfiniteScrollProps } from '../components/infinityScroll'
 export { default as useInfiniteScroll } from '../components/infinityScroll'
+
+export type { NavBarProps,NavItem } from '../components/NavBar';
+export { default as NavBar } from '../components/NavBar';
