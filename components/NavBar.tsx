@@ -1,10 +1,8 @@
 import React from 'react'
-import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 export interface NavItem {
-  label: string
-  href: string
+  element: React.ReactNode
 }
 
 export interface NavBarProps {
@@ -22,14 +20,7 @@ const NavBar = ({ items, logo, className }:NavBarProps) => {
       {logo && <div className="flex-shrink-0">{logo}</div>}
       <ul className="flex space-x-4">
         {items.map((item, index) => (
-          <li key={index}>
-            <Link 
-              href={item.href}
-              className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
-            >
-              {item.label}
-            </Link>
-          </li>
+          <li key={index}>{item.element}</li>
         ))}
       </ul>
     </nav>
