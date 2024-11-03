@@ -52,9 +52,6 @@ export { default as Avatar } from '../components/Avatar';
 export type { ScrollAreaProps } from '../components/ScrollArea';
 export { default as ScrollArea } from '../components/ScrollArea'
 
-export type { CustomCalendarProps } from '../components/Calendar'
-export { default as Calendar } from '../components/Calendar'
-
 export type { LinkProps, LinkContentProps } from '../components/LinkItem'
 export { default as LinkContent } from '../components/LinkItem'
 

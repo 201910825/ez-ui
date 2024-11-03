@@ -13,7 +13,7 @@ import Image from 'next/image';
 import  LinkContent  from '../components/LinkItem';
 import { PanelsTopLeft } from 'lucide-react';
 import ScrollArea from '../components/ScrollArea';
-import  Calendar  from '../components/Calendar';
+import CodeBlock from '../components/CodeBlock';
 
 
 const tasks = [
@@ -40,7 +40,7 @@ const HomeContent = () => {
       <ToggleDark />
       <Btn  className=''>click</Btn>
       <div className='w-1/2 flex justify-center'>
-        <VirtualPhone width={200} height={700} src='https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80' alt='awef' speed={7} isSpin = {false}/>
+        <VirtualPhone width={200} height={500} src='https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80' alt='awef' speed={7} isSpin = {true}/>
         모바일
       </div>
       
@@ -62,6 +62,18 @@ const HomeContent = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
+      <CodeBlock 
+  codeString={`import { Button } from "@Components/ui/button"
+
+export default function Home() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>
+  )
+}`} 
+  language="typescript" 
+/>
     </div>
   );
 };
@@ -82,7 +94,7 @@ export default function Home() {
         </GanttChartFooter >
       </GanttChartProvider>
     </div>
-    <div>
+    <ScrollArea className="border-none flex justify-center  w-full" showScrollbar = {true} barColor='blue'>
       <Btn size="default" variant="default" className="custom-class">
         Default Button
       </Btn>
@@ -98,7 +110,7 @@ export default function Home() {
       <Btn size="large" className="bg-red-400">
         Custom Large Red Button
       </Btn>
-    </div>
+    </ScrollArea>
     <div>
       
       {/* 페이지의 나머지 내용 */}
@@ -106,9 +118,6 @@ export default function Home() {
       <LinkContent Icon={PanelsTopLeft} to='/infinitytest'>
         <p>무한 스크롤</p>
       </LinkContent>
-      
-        
-    <Calendar showOutsideDays={false}/>
     </ConfirmProvider>
   );
 }
