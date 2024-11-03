@@ -12,8 +12,8 @@ import NavBar from '../components/NavBar';
 import Image from 'next/image';
 import  LinkContent  from '../components/LinkItem';
 import { PanelsTopLeft } from 'lucide-react';
-import ScrollArea from '../components/ScrollArea';
 import CodeBlock from '../components/CodeBlock';
+import { ScrollArea } from '../src';
 
 
 const tasks = [

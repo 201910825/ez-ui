@@ -12,12 +12,11 @@ const CodeBlock = ({ codeString, language }: { codeString: string; language?: st
           themes: ['nord', 'vitesse-dark'], // Use an array of theme names
         });
         const highlightedCode = highlighter.codeToHtml(codeString, {
-          lang: language,
+          lang: language || 'plaintext', // Provide a default language
           themes: {
             light: 'vitesse-dark',
             dark: 'vitesse-dark',
           }
-         // Use an array of theme names
         });
         setFormattedCode(highlightedCode);
       } catch (error) {

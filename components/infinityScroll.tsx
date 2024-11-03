@@ -47,7 +47,7 @@ const useInfiniteScroll = ({
     try {
       if (cacheRef.current[page] && cacheRef.current[page] !== undefined ) {
         setItems((prev) => [...prev, ...cacheRef.current[page]]);
-        setPage((prevPage) => prevPage + 1);
+        setPage((prevPage:any) => prevPage + 1);
         setIsLoading(false);
         return;
       }
@@ -56,7 +56,7 @@ const useInfiniteScroll = ({
       if (newResponse.results.length!==0)
       {
         setItems((prev) => [...prev, ...newResponse.results]);
-        setPage((prevPage) => prevPage + 1);
+        setPage((prevPage:any) => prevPage + 1);
         setTotalPages(newResponse.total_pages);
         cacheRef.current[page] = newResponse.results;
       }

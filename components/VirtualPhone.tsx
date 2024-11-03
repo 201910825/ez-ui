@@ -9,7 +9,7 @@ export interface ScreenProps {
     priority?: boolean,
     className?:string,
     speed?: number,
-    width?: number,
+    width: number,
     height?: number,
     isSpin?: boolean
 }
@@ -41,7 +41,7 @@ const FloatingPhone = ({ width, height, src, alt, priority, speed, isSpin }: Scr
         }}
       >
         <HeaderBar />
-        <Screen src={src} alt={alt} priority={priority} />
+        <Screen src={src} alt={alt} priority={priority} width={width} />
       </div>
 
       <div
@@ -64,7 +64,7 @@ const FloatingPhone = ({ width, height, src, alt, priority, speed, isSpin }: Scr
       <div
         className="absolute inset-0 h-full w-[20px] bg-gradient-to-t from-gray-400 via-gray-200 to-gray-600"
         style={{
-          transform: `rotateY(-90deg) translateZ(-${width-17}px)`,
+          transform: `rotateY(-90deg) translateZ(-${(width || 0) - 17}px)`,
         }}
       ></div>
 
@@ -81,7 +81,7 @@ const FloatingPhone = ({ width, height, src, alt, priority, speed, isSpin }: Scr
       <div
         className="absolute inset-0 w-full h-[20px] bg-gradient-to-t from-gray-400 via-gray-200 to-gray-600"
         style={{
-          transform: `rotateX(-90deg) translateZ(${height-15}px) translateY(0px)`,
+          transform: `rotateX(-90deg) translateZ(${(height || 0) - 15}px) translateY(0px)`,
 
           borderBottomLeftRadius: "24px",
           borderBottomRightRadius: "24px",
@@ -111,7 +111,7 @@ const HeaderBar = () => {
   );
 };
 
-const Screen = ({ src,alt,className }: ScreenProps) => {
+const Screen = ({ src,alt,className, width }: ScreenProps) => {
   return (
     <div className="relative z-0 h-full w-full place-content-center overflow-hidden bg-white">
       <Image

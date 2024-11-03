@@ -64,7 +64,7 @@ const GanttChartProvider = ({ children, className, width = 1000, height = 800, t
   };
 
   return (
-    <GanttChartContext.Provider value={{ currentMonth, currentYear, handlePrevMonth, handleNextMonth, tasks, width, height, plannedColor, actualColor, margin }}>
+    <GanttChartContext.Provider value={{ currentMonth, currentYear, handlePrevMonth, handleNextMonth, tasks: tasks || [], width, height, plannedColor, actualColor, margin }}>
       <div className={cn(` items-center flex w-[${width}px] flex flex-col h-[${height}px] p-5`, className)}>
         {children}
       </div>
@@ -95,17 +95,17 @@ const GanttChartHeader = ({className}:GanttChartProps) => {
 const GanttChartBody = () => {
   const { tasks, width, height, margin, plannedColor, actualColor, currentMonth, currentYear } = useContext(GanttChartContext);
 
-  const xScale = (date) => {
+  const xScale = (date: any) => {
     const minDate = new Date(currentYear, currentMonth, 1).getTime();
     const maxDate = new Date(currentYear, currentMonth + 1, 0).getTime();
     return ((date.getTime() - minDate) / (maxDate - minDate)) * (width - margin.left - margin.right) + margin.left;
   };
 
-  const yScale = (index) => {
+  const yScale = (index: any) => {
     return margin.top + index * 50;
   };
 
-  const daysBetween = (start, end) => {
+  const daysBetween = (start : any, end: any) => {
     return Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
   };
 

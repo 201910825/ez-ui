@@ -21,13 +21,15 @@
     "incremental": true,
     "paths": {
       "@/*": [
-        "./src/*"
+        "./*"
       ]
     }
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
+    "next-env.d.ts",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",

@@ -1,6 +1,6 @@
 {
   "name": "@easymean/ez-ui",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "private": false,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -13,7 +13,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@easymean/ez-ui": "^1.0.1",
+    "@babel/runtime": "^7.26.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.1.1",
     "lucide-react": "^0.441.0",
@@ -31,6 +31,7 @@
     "@babel/cli": "^7.25.6",
     "@babel/core": "^7.25.2",
     "@babel/plugin-transform-modules-commonjs": "^7.25.9",
+    "@babel/plugin-transform-runtime": "^7.25.9",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
     "@babel/preset-typescript": "^7.26.0",
@@ -45,6 +46,7 @@
     "eslint-plugin-storybook": "^0.10.1",
     "postcss": "^8.4.45",
     "rollup": "^2.60.2",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-typescript2": "^0.31.1",
     "tailwindcss": "^3.4.11",
