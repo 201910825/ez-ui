@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import { Btn } from "../components/Button";
+import {Btn  } from '@easymean/ez-ui'
 import ToggleDark from '../components/Darkmode';
 import VirtualPhone from '../components/VirtualPhone';
 import Avatar from '../components/Avatar';

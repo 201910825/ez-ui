@@ -18,18 +18,25 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "outDir": "./dist",
     "incremental": true,
     "paths": {
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
-  "components/**/*",  // 모든 컴포넌트 파일 포함
-  "src/**/*"     // 모든 컴포넌트를 내보내는 파일 포함
+    "components/**/*", // 모든 컴포넌트 파일 포함
+    "src/**/*" // 모든 컴포넌트를 내보내는 파일 포함
+    ,
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
