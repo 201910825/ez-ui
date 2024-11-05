@@ -4,6 +4,10 @@ import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';
 import replace from '@rollup/plugin-replace';
+import commonjs from '@rollup/plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import json from '@rollup/plugin-json';
+import { terser } from 'rollup-plugin-terser';
 
 export default {
   input: 'src/index.ts',
@@ -11,30 +15,42 @@ export default {
     {
       dir: 'dist/cjs',
       format: 'cjs',
-      sourcemap: true,
+      sourcemap: false,
     },
     {
       dir: 'dist/esm',
       format: 'esm',
-      sourcemap: true,
+      sourcemap: false,
     },
   ],
   plugins: [
+    nodeResolve(),
+    commonjs(),
+    json(),
     typescript({
-      useTsconfigDeclarationDir: true, // tsconfig의 declarationDir 사용
+      useTsconfigDeclarationDir: true,
     }),
     babel({
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
+      exclude: 'node_modules/**',
     }),
     postcss({
       plugins: [tailwindcss(), autoprefixer()],
       extract: 'dist/tailwind.css',
     }),
     replace({
-      'use client': '', // 'use client' 지시어 무시
+      'use client': '',
       preventAssignment: true,
     }),
+    terser(),
   ],
-  external: ['react', 'react-dom', 'next/image', 'lucide-react', 'class-variance-authority'],
+  external: [
+    'react', 
+    'react-dom', 
+    'next/image', 
+    'lucide-react', 
+    'class-variance-authority',
+    'next-themes'
+  ],
 };

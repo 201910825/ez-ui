@@ -30,7 +30,7 @@ export interface AlertModalButtonProps {
 const AlertModal = ({ children, isOpen, onClose, className }: AlertModalProps) => {
     const isLightMode = document.documentElement.classList.contains('light');
     return isOpen ? (
-      <AlertModalContext.Provider value={{ isOpen, onOpen: () => {}, onClose }}>
+      <AlertModalContext.Provider value={{ isOpen, onOpen: () => {}, onClose: () => {} }}>
         <div className={cn("fixed inset-0 bg-black/80 bg-opacity-50 flex justify-center items-center z-[100]", className)} onClick={onClose}>
           <div className={cn(`${isLightMode ? 'bg-[white]' : 'bg-[black]'} border border-[#6f6e6e3e] p-6 rounded-md shadow-lg w-full sm:w-1/3`)} onClick={(e) => e.stopPropagation()}>
             {children}

@@ -1,8 +1,7 @@
 'use client'
-import React, { useEffect } from 'react';
-import { ScrollArea, useInfiniteScroll } from '../../../src';
+import React from 'react';
+import { useInfiniteScroll } from '../../../src';
 // Mock fetch function
-
 const data = async (page) => {
   try {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}`);
@@ -28,12 +27,8 @@ const InfinityScrollComponent = () => {
     initialPage: 1,
     cache: false
   });
-  useEffect(() => {
-    // Assuming ScrollArea has a method to update the scrollbar
-    // You might need to call a method or trigger a re-render
-  }, [items]);
   return (
-    <ScrollArea className='w-[500px] h-[350px] ' showScrollbar={true} barColor='blue'>
+    <div >
       {items && items.map((item, index) => ( // Ensure items is an array
         <div key={item.id} style={{width : '100%',  height: '50px', border: '1px solid black' }}>
           <p>Name: {item.title}</p> {/* Assuming the API returns a title */}
@@ -43,7 +38,7 @@ const InfinityScrollComponent = () => {
       <div ref={lastElementRef} style={{ height: '10px' }} />
       {isLoading && <p>Loading more...</p>}
       {error && <p>error fetching</p>}
-    </ScrollArea>
+    </div>
   );
 };
 

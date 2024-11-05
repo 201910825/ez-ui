@@ -22,7 +22,7 @@ const LinkContent = React.forwardRef<HTMLDivElement, LinkContentProps>(
   ({ to, Icon, width=16, height=16, text, locatedStyle = 'font-bold underline', className, children, ...props }, ref) => {
     const path = usePathname();
     return (
-    <Link href={to}>
+    <Link href={to || '/'}>
       <div
         ref={ref}
         style={to !== path ? { color: 'hsl(240, 5%, 64.9%)' } : {}}

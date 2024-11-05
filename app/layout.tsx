@@ -37,7 +37,7 @@ export default function RootLayout({ children }: Readonly<{children: React.React
             <ConfirmProvider>
             <NavBar 
               items={navElements.map(element => ({ element }))}
-              logo={<h2>ez-ui</h2>}
+              logo={<Link href='/'><h1 className='ml-3 px-2 font-extrabold text-[24px]'>EZ-UI</h1></Link>}
               className=""
             />
             <div className='w-full flex justify-center'>

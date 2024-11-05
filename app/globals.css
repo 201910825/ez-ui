@@ -11,3 +11,6 @@
     scrollbar-width: none;
   }
 }
+:root {
+  --background: hsl(240, 10%, 3.9%);
+}

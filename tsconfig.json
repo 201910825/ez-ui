@@ -2,28 +2,24 @@
   "compilerOptions": {
     "lib": [
       "dom",
-      "dom.iterable",
       "esnext"
     ],
+    "target": "es5",
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "noEmit": false,
-    "declaration": true, // 타입 정의 파일 생성
-    "declarationDir": "./dist/types", // 타입 정의 파일 출력 디렉토리
-    "emitDeclarationOnly": true, // 타입 정의 파일만 생성
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "declarationDir": "./dist/types",
+    "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "paths": {
       "@/*": [
         "./*"
@@ -34,7 +30,9 @@
     "next-env.d.ts",
     "components/**/*.ts",
     "components/**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/index.ts"
+    
   ],
   "exclude": [
     "node_modules",

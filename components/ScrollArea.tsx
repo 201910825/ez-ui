@@ -17,7 +17,6 @@ const ScrollArea = ({ className, children,barColor = 'blue', showScrollbar = tru
   const [isDragging, setIsDragging] = useState(false);
   const [startY, setStartY] = useState(0);
   const [startScrollTop, setStartScrollTop] = useState(0);
-
   useEffect(() => {
     const handleResize = () => {
       if (contentRef.current && scrollTrackRef.current && scrollThumbRef.current) {
@@ -25,15 +24,20 @@ const ScrollArea = ({ className, children,barColor = 'blue', showScrollbar = tru
         const trackHeight = scrollTrackRef.current.clientHeight;
         const thumbHeight = Math.max((clientHeight / scrollHeight) * trackHeight, 20);
         scrollThumbRef.current.style.height = `${thumbHeight}px`;
-        setIsScrollbarVisible(showScrollbar && scrollHeight > clientHeight); 
+        setIsScrollbarVisible(showScrollbar); 
       }
     };
-  
+    
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [showScrollbar]);
+    const observer = new MutationObserver(handleResize);
+    if (contentRef.current) {
+      observer.observe(contentRef.current, { childList: true, subtree: true });
+    }
+    return () => observer.disconnect();
+  }, [showScrollbar, children]); // Ensure children is included
   
+ 
+
   const handleScroll = () => {
     if (contentRef.current && scrollThumbRef.current && scrollTrackRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
@@ -41,7 +45,7 @@ const ScrollArea = ({ className, children,barColor = 'blue', showScrollbar = tru
       const thumbHeight = scrollThumbRef.current.clientHeight;
       const thumbTop = (scrollTop / (scrollHeight - clientHeight)) * (trackHeight - thumbHeight);
       scrollThumbRef.current.style.transform = `translateY(${thumbTop}px)`;
-      setIsScrollbarVisible(showScrollbar && scrollHeight > clientHeight); // Update visibility on scroll
+      setIsScrollbarVisible(showScrollbar && scrollHeight > clientHeight);
     }
   };
 
@@ -78,12 +82,12 @@ const ScrollArea = ({ className, children,barColor = 'blue', showScrollbar = tru
       document.removeEventListener('mouseup', handleMouseUp);
     };
   }, [isDragging, startY, startScrollTop]);
-
+  
   return (
     <div className={cn(`border border-[#] relative overflow-hidden`,className)} {...props} style={{ '--bar-color': barColor } as React.CSSProperties}>
       <div
         ref={contentRef}
-        className="p-4 h-full w-48 flex flex-col overflow-scroll scrollbar-hide"
+        className="p-4 h-full flex flex-col overflow-scroll scrollbar-hide"
         onScroll={handleScroll}
       >
         {children}
