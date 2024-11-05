@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react';
-import { ScrollArea, useInfiniteScroll } from '../../../src';
+import { ScrollArea, useInfiniteScroll } from '@easymean/ez-ui';
 // Mock fetch function
 
 const data = async (page) => {

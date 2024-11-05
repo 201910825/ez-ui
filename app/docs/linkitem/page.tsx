@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import { useInfiniteScroll } from '../../../src';
+import { useInfiniteScroll } from '@easymean/ez-ui';
 // Mock fetch function
 const data = async (page) => {
   try {
