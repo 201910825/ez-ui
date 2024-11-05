@@ -44,7 +44,7 @@ export type { ScreenProps } from '../components/VirtualPhone';
 export { default as VirtualPhone } from '../components/VirtualPhone';
 
 export type { Task, GanttChartProps, ButtonProps } from '../components/gantt';
-export { GanttChartHeader, GanttChartBody ,GanttChartFooter , GanttChartProvider } from '../components/gantt';
+export { GanttChartHeader, GanttChartBody ,GanttChartFooter , GanttChartProvider,PrevBtn, NextBtn } from '../components/gantt';
 
 export type { AvatarProps } from '../components/Avatar';
 export { default as Avatar } from '../components/Avatar';
