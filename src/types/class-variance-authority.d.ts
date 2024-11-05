@@ -9,5 +9,5 @@ declare module 'class-variance-authority' {
     };
     export type VariantProps<T> = T extends { variants: infer V }
         ? { [K in keyof V]?: keyof V[K] }
-        : never;
+        : {};
 }

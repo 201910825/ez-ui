@@ -1,19 +1,22 @@
 'use client'
 import React from 'react';
-import {Btn  } from '@easymean/ez-ui'
-import ToggleDark from '../components/Darkmode';
-import VirtualPhone from '../components/VirtualPhone';
-import Avatar from '../components/Avatar';
-import Form from '../components/Form';
-import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalFooter, ModalCancel, ModalAction } from '../components/Modal';
-import { ConfirmProvider, useConfirm } from '../components/Confirm';
-import { GanttChartHeader, GanttChartBody ,GanttChartFooter , GanttChartProvider, NextBtn, PrevBtn } from '../components/gantt';
-import NavBar from '../components/NavBar';
-import Image from 'next/image';
-import  LinkContent  from '../components/LinkItem';
+
+
+
+
+
+
+
 import { PanelsTopLeft } from 'lucide-react';
 import CodeBlock from '../components/CodeBlock';
-import { ScrollArea } from '../src';
+import {GanttChartProvider,GanttChartBody , GanttChartFooter ,GanttChartHeader,Btn, LinkContent, ScrollArea, PrevBtn, NextBtn, ConfirmProvider, useConfirm,
+  ToggleDark,
+ VirtualPhone,
+ Avatar,
+  Modal, ModalTrigger, ModalContent, ModalHeader, ModalFooter, ModalCancel, ModalAction
+} from '@easymean/ez-ui';
+
+
 
 const tasks = [
   { name: 'Task 1', plannedStart: new Date('2023-10-01'), plannedEnd: new Date('2023-10-05'), actualStart: new Date('2023-10-02'), actualEnd: new Date('2023-10-06') },
@@ -44,11 +47,9 @@ const HomeContent = () => {
       </div>
       
       <Avatar src="https://cdn.pixabay.com/photo/2022/06/23/17/13/ball-7280265_1280.jpg" alt="User Name" size="large" />
-      <Form title='Login'/>
-      <button onClick={handleDelete}>Delete Item</button>
       <Modal>
         <ModalTrigger>
-          <Btn size="large" variant="primary">awef</Btn>
+          <Btn className=''>awef</Btn>
         </ModalTrigger>
         <ModalContent>
           <ModalHeader>
