@@ -15,7 +15,6 @@ import { PanelsTopLeft } from 'lucide-react';
 import CodeBlock from '../components/CodeBlock';
 import { ScrollArea } from '../src';
 
-
 const tasks = [
   { name: 'Task 1', plannedStart: new Date('2023-10-01'), plannedEnd: new Date('2023-10-05'), actualStart: new Date('2023-10-02'), actualEnd: new Date('2023-10-06') },
   { name: 'Task 2', plannedStart: new Date('2023-10-03'), plannedEnd: new Date('2023-10-08'), actualStart: new Date('2023-10-04'), actualEnd: new Date('2023-10-09') },

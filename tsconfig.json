@@ -10,8 +10,9 @@
     "strict": true,
     "noEmit": false,
     "declaration": true,
+    "allowSyntheticDefaultImports": true,
     "declarationDir": "./dist/types",
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -29,7 +30,9 @@
     "next-env.d.ts",
     "components/**/*.ts",
     "components/**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/index.ts"
+    
   ],
   "exclude": [
     "node_modules",
