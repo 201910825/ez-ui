@@ -1,5 +1,5 @@
 'use client'
-import { cn } from '@/docs/lib/utils';
+import { cn } from '@/lib/utils';
 import React, { useRef, useEffect, useState } from 'react';
 
 export interface ScrollAreaProps extends React.HTMLAttributes<HTMLDivElement> {

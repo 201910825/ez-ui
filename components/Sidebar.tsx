@@ -1,5 +1,5 @@
 'use client'
-import { cn } from '@/docs/lib/utils'
+import { cn } from '@/lib/utils'
 import React from 'react'
 import ScrollArea from './ScrollArea'
 

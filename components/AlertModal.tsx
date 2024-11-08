@@ -1,7 +1,7 @@
 'use client'
 
-import React, { ReactNode, createContext, useContext } from 'react';
-import { cn } from '@/docs/lib/utils';
+import { ReactNode, createContext, useContext } from 'react';
+import { cn } from '@/lib/utils';
 import { Btn } from './Button';
 
 export interface AlertModalProps {
