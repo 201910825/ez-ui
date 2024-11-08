@@ -1,5 +1,5 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/docs/lib/utils';
 
 export interface AvatarProps {
   src?: string;

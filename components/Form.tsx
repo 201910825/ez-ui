@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Btn } from './Button';
-import { cn } from '@/lib/utils';
+import { cn } from '@/docs/lib/utils';
 
 interface FormProps {
     title?: string;

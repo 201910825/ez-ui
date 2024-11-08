@@ -1,18 +1,12 @@
 'use client'
 import React from 'react';
 
-
-
-
-
-
-
 import { PanelsTopLeft } from 'lucide-react';
 import CodeBlock from '../components/CodeBlock';
-import {GanttChartProvider,GanttChartBody , GanttChartFooter ,GanttChartHeader,Btn, LinkContent, ScrollArea, PrevBtn, NextBtn, ConfirmProvider, useConfirm,
-  ToggleDark,
- VirtualPhone,
- Avatar,
+import {
+  GanttChartProvider,GanttChartBody , GanttChartFooter ,GanttChartHeader,
+  Btn, LinkContent, ScrollArea, PrevBtn, NextBtn, ConfirmProvider, useConfirm,
+  ToggleDark,VirtualPhone,Avatar,
   Modal, ModalTrigger, ModalContent, ModalHeader, ModalFooter, ModalCancel, ModalAction
 } from '@easymean/ez-ui';
 
