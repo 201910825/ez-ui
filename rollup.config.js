@@ -42,7 +42,7 @@ export default {
     }),
     postcss({
       plugins: [tailwindcss(), autoprefixer()],
-      extract: 'tailwind.css', 
+      inject: true, 
       sourceMap: true, 
     }),
     replace({

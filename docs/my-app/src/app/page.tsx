@@ -7,7 +7,7 @@ export default function Home() {
     <ThemeProvider>
       <ToggleDark />
       <div className="w-screen h-screen">
-        <Btn>awefawef</Btn>
+        <Btn >awefawef</Btn>
       </div>
     </ThemeProvider>
   );

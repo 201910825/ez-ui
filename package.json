@@ -10,7 +10,8 @@
     "dev": "next dev",
     "build": "rollup -c ",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "@easymean/ez-ui": "^0.5.13",
@@ -57,7 +58,8 @@
     "typescript": "^5"
   },
   "files": [
-    "dist"
+    "dist",
+    "dist/ez-ui.css"
   ],
   "publishConfig": {
     "access": "public"
