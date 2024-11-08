@@ -1,3 +1,4 @@
+import path from 'path';
 import babel from '@rollup/plugin-babel';
 import typescript from 'rollup-plugin-typescript2';
 import postcss from 'rollup-plugin-postcss';
@@ -16,11 +17,15 @@ export default {
       dir: 'dist/cjs',
       format: 'cjs',
       sourcemap: false,
+      entryFileNames: '[name].js',
+      exports: 'named', // 추가
     },
     {
       dir: 'dist/esm',
       format: 'esm',
       sourcemap: false,
+      entryFileNames: '[name].js',
+      exports: 'named', // 추가
     },
   ],
   plugins: [
@@ -37,7 +42,8 @@ export default {
     }),
     postcss({
       plugins: [tailwindcss(), autoprefixer()],
-      extract: 'dist/tailwind.css',
+      extract: 'tailwind.css', 
+      sourceMap: true, 
     }),
     replace({
       'use client': '',
@@ -51,6 +57,8 @@ export default {
     'next/image', 
     'lucide-react', 
     'class-variance-authority',
-    'next-themes'
+    'next-themes',
+    'clsx', 
+    'tailwind-merge'
   ],
 };

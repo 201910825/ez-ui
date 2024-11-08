@@ -1,3 +1,4 @@
+import './styles/global.css'
 export { ThemeProvider } from '../components/theme-provider';
 
 export type { BtnProps } from '../components/Button';
