@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "rollup -c && npx tailwindcss -o ./dist/index.css --minify",
+    "build": "rollup -c && npx tailwindcss -o ./dist/index.css --minify && copy src\\styles\\global.css dist\\index.css",
     "start": "next start",
     "lint": "next lint"
   },

@@ -7,6 +7,7 @@ export default function Sub() {
   const {confirm} = useConfirm()
   const clickHandler = () =>{
     confirm("awef")
+    
   }
   return (
     <div>

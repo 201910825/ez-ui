@@ -1,13 +1,13 @@
 'use client'
 
-import { ThemeProvider,ConfirmProvider,ToggleDark,VirtualPhone,ScrollArea } from "@easymean/ez-ui";
+import { ThemeProvider,ConfirmProvider,ToggleDark,VirtualPhone,ScrollArea, AlertModalCancel } from "@easymean/ez-ui";
 import Sub from "./sub/page";
 import React from "react";
-
 export default function Home() {
 
   return (
     <ThemeProvider>
+      <AlertModalCancel>awefawef</AlertModalCancel>
       <ConfirmProvider>
       <ToggleDark/>
       <div className="w-screen h-screen">
