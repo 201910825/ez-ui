@@ -8,13 +8,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "rollup -c ",
+    "build": "rollup -c && npx tailwindcss -o ./dist/index.css --minify",
     "start": "next start",
-    "lint": "next lint",
-    "clean": "rm -rf dist"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@easymean/ez-ui": "^0.5.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.1.1",
     "lucide-react": "^0.441.0",
@@ -59,7 +57,7 @@
   },
   "files": [
     "dist",
-    "dist/ez-ui.css"
+    "src/styles.js" 
   ],
   "publishConfig": {
     "access": "public"

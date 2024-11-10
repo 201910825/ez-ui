@@ -8,9 +8,8 @@ module.exports = {
       './src/pages/**/*.{js,ts,jsx,tsx}',  // src 디렉토리의 pages
       './src/components/**/*.{js,ts,jsx,tsx}',  // src 디렉토리의 components
       './src/app/**/*.{js,ts,jsx,tsx}',  // src 디렉토리의 app
-      './public/index.html',
     ],
-    darkMode: 'className',
+    darkMode: 'class',
     theme: {
       extend: {},
     },
