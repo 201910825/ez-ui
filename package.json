@@ -12,7 +12,18 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
+  },
   "dependencies": {
+    "@babel/runtime": "^7.26.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.1.1",
     "lucide-react": "^0.441.0",
@@ -57,7 +68,7 @@
   },
   "files": [
     "dist",
-    "src/styles.js" 
+    "src/styles.js"
   ],
   "publishConfig": {
     "access": "public"

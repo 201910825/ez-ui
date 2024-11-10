@@ -1,17 +1,20 @@
 'use client'
 
-import Image from "next/image";
-import { Btn, ThemeProvider, ToggleDark, VirtualPhone,ConfirmProvider } from "../../dist/cjs/index";
-import '../../dist/index.css'
+import { ThemeProvider,ConfirmProvider,ToggleDark,VirtualPhone,ScrollArea } from "@easymean/ez-ui";
+import Sub from "./sub/page";
+import React from "react";
+
 export default function Home() {
+
   return (
     <ThemeProvider>
       <ConfirmProvider>
       <ToggleDark/>
       <div className="w-screen h-screen">
-        <VirtualPhone src="./file.svg" alt="" width={500} height={300}/>
-        <Btn className="bg-slate-500">awefawef</Btn>
+        <VirtualPhone src="./file.svg" alt="" width={500} height={300} isSpin={false}/>
+        <Sub></Sub>
       </div>
+      <ScrollArea showScrollbar={true}>awefawef</ScrollArea>
       </ConfirmProvider>
     </ThemeProvider>
   );
