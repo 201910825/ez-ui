@@ -1,5 +1,7 @@
 'use client'
+
 import {Btn, useConfirm } from "@easymean/ez-ui";
+import React from "react";
 
 export default function Sub() {
   const {confirm} = useConfirm()

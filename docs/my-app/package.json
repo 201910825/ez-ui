@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@easymean/ez-ui": "^1.0.8",
+    "@easymean/ez-ui": "^1.0.9",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.1.1",
