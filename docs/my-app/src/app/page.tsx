@@ -6,12 +6,11 @@ import {
   GanttChartProvider,GanttChartBody , GanttChartFooter ,GanttChartHeader,
   Btn, LinkContent, ScrollArea, PrevBtn, NextBtn, ConfirmProvider, useConfirm,
   ToggleDark,VirtualPhone,Avatar,
-  Modal, ModalTrigger, ModalContent, ModalHeader, ModalFooter, ModalCancel, ModalAction,
   ThemeProvider
 } from '@easymean/ez-ui';
 import Sub from './sub/page';
 
-
+import {Modal,ModalTrigger, ModalContent, ModalHeader, ModalFooter, ModalCancel, ModalAction} from '../../../../components/Modal'
 
 const tasks = [
   { name: 'Task 1', plannedStart: new Date('2023-10-01'), plannedEnd: new Date('2023-10-05'), actualStart: new Date('2023-10-02'), actualEnd: new Date('2023-10-06') },
@@ -43,7 +42,7 @@ const HomeContent = () => {
           </ModalHeader>
           <p>Modal content goes here...</p>
           <ModalFooter>
-            <ModalCancel className='bg-white'>Cancel</ModalCancel>
+            <ModalCancel>Cancel</ModalCancel>
             <ModalAction>Confirm</ModalAction>
           </ModalFooter>
         </ModalContent>
@@ -56,7 +55,7 @@ const HomeContent = () => {
 
 export default function Home() {
   return (
-    <ConfirmProvider alertTitle='뭐시깽이' confirmTitle='aweawef' alertClassName='bg-white' >
+    <ConfirmProvider alertTitle='뭐시깽이' confirmTitle='aweawef' alertClassName='bg-white dark:bg-white' >
 
       <HomeContent />
       <div>
@@ -70,7 +69,7 @@ export default function Home() {
         </GanttChartFooter >
       </GanttChartProvider>
     </div>
-    <ScrollArea className="border-none flex justify-center  w-full" showScrollbar = {true} barColor='blue'>
+    <ScrollArea className="border-none flex justify-center  w-full" showScrollbar = {true} barColor='red'>
       <Btn size="default" variant="default" className="dark:bg-blue-700">
         Default Button
       </Btn>

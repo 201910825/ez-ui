@@ -18,7 +18,7 @@ export default function Sub() {
   return (
     <div>
       <AlertModalFooter>awefawef</AlertModalFooter>
-        <Btn onClick={handleDelete}  className="bg-gray-200">awefawefggg</Btn>
+        <Btn onClick={handleDelete} className="bg-red-400">awefawefggg</Btn>
     </div>
   );
 }

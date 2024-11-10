@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState, ReactNode } from 'react';
-import { cn } from '@/lib/utils';
+import React, { useState, ReactNode, useEffect } from 'react';
+import { cn } from '../lib/utils';
 import { Btn } from './Button';
 
 export interface ModalProps {
@@ -60,15 +60,15 @@ const Modal = ({ children }: ModalProps) => {
 };
   
 const ModalContent = ({ children, className }: ModalContentProps) => {
-    const isLightMode = typeof window !== 'undefined' && document.documentElement.classList.contains('light');
+    const isLightMode = typeof window !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'light';
     const { isOpen, onClose: contextOnClose } = React.useContext(ModalContext);
-  
+    useEffect(()=>{console.log(isLightMode)},[document]);
     return isOpen ? (
       <div className={cn("fixed inset-0 bg-black/80 bg-opacity-50 flex justify-center items-center z-[100]")} onClick={contextOnClose}>
         <div
         className={cn(
           "p-6 rounded-md shadow-lg w-full sm:w-1/3 border border-[#6f6e6e3e]",
-          isLightMode ? 'bg-[white]' : 'bg-[black]',
+          isLightMode ? 'bg-white' : 'bg-black',
           className
         )}
         onClick={(e) => e.stopPropagation()}
