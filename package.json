@@ -1,6 +1,6 @@
 {
   "name": "@easymean/ez-ui",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "private": false,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -15,7 +15,12 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
-      ["@babel/preset-react", { "runtime": "automatic" }],
+      [
+        "@babel/preset-react",
+        {
+          "runtime": "automatic"
+        }
+      ],
       "@babel/preset-typescript"
     ],
     "plugins": [
