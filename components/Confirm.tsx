@@ -83,15 +83,15 @@ export const ConfirmProvider = ({
           <h1>{confirmState.message}</h1>
           <AlertModalFooter className={alertFooterClassName}>
             <AlertModalCancel onClick={handleCancel} className={alertCancelClassName}>Cancel</AlertModalCancel>
-            <AlertModalAction onClick={handleConfirm} className={alertClassName}>OK</AlertModalAction>
+            <AlertModalAction onClick={handleConfirm} className={alertActionClassName}>OK</AlertModalAction>
           </AlertModalFooter>
         </AlertModal>
       )}
       {alertState && (
         <AlertModal isOpen={!!alertState} onClose={handleAlertClose} className={alertClassName}>
-          <AlertModalHeader className={alertClassName}>{alertTitle}</AlertModalHeader>
+          <AlertModalHeader className={alertHeaderClassName}>{alertTitle}</AlertModalHeader>
           <h1>{alertState.message}</h1>
-          <AlertModalFooter className={alertClassName}>
+          <AlertModalFooter className={alertFooterClassName}>
             <AlertModalAction onClick={handleAlertClose} className={alertActionClassName}>OK</AlertModalAction>
           </AlertModalFooter>
         </AlertModal>

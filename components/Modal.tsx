@@ -92,13 +92,13 @@ const ModalButton = ({ children, onClick,className }: ModalButtonProps) => {
   return <Btn onClick={onClick} className={cn(className)}>{children}</Btn>;
 };
 
-const ModalCancel = ({ children }: ModalButtonProps) => {
+const ModalCancel = ({ children,className }: ModalButtonProps) => {
   const { onClose } = React.useContext(ModalContext);
-  return <ModalButton onClick={onClose}>{children}</ModalButton>;
+  return <ModalButton className={cn(className)} onClick={onClose}>{children}</ModalButton>;
 };
 
-const ModalAction = ({ children }: ModalButtonProps) => {
-  return <ModalButton>{children}</ModalButton>;
+const ModalAction = ({ children,className }: ModalButtonProps) => {
+  return <ModalButton className={cn(className)}>{children}</ModalButton>;
 };
 
 export { Modal, ModalTrigger, ModalContent, ModalHeader, ModalFooter, ModalCancel, ModalAction };
